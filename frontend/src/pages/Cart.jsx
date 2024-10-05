@@ -79,7 +79,7 @@ const Cart = () => {
         {item.brand}
       </Typography>
       <Typography fontWeight="bold" sx={{ mt: 1 }}>
-        ${item.price}
+      ₹{item.price}
       </Typography>
     </Grid>
 
@@ -123,7 +123,7 @@ const Cart = () => {
                 Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)} items)
               </Typography>
               <Typography variant="h4" fontWeight="bold">
-                ${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
+              ₹{cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}
               </Typography>
               <Button
                 variant="contained"

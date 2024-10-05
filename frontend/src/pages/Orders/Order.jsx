@@ -101,8 +101,8 @@ const Order = () => {
                         <Link to={`/product/${item.product}`}>{item.name}</Link>
                       </TableCell>
                       <TableCell>{item.qty}</TableCell>
-                      <TableCell>${item.price.toFixed(2)}</TableCell>
-                      <TableCell>${(item.qty * item.price).toFixed(2)}</TableCell>
+                      <TableCell>₹{item.price.toFixed(2)}</TableCell>
+                      <TableCell>₹{(item.qty * item.price).toFixed(2)}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -134,7 +134,7 @@ const Order = () => {
             <strong>Payment Method:</strong> {order.paymentMethod}
           </Typography>
           <Typography variant="body1" sx={{ marginY: "1rem" }} color="white">
-            <strong>Total Amount:</strong> ${order.totalPrice}
+            <strong>Total Amount:</strong> ₹{order.totalPrice}
           </Typography>
 
           {!order.isPaid ? (

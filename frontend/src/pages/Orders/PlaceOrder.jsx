@@ -82,8 +82,8 @@ const PlaceOrder = () => {
                         </Link>
                       </TableCell>
                       <TableCell sx={{ color: "white" }}>{item.qty}</TableCell>
-                      <TableCell sx={{ color: "white" }}>${item.price.toFixed(2)}</TableCell>
-                      <TableCell sx={{ color: "white" }}>${(item.qty * item.price).toFixed(2)}</TableCell>
+                      <TableCell sx={{ color: "white" }}>₹{item.price.toFixed(2)}</TableCell>
+                      <TableCell sx={{ color: "white" }}>₹{(item.qty * item.price).toFixed(2)}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

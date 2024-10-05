@@ -112,7 +112,7 @@ const Shipping = () => {
               onChange={(e) => setPaymentMethod(e.target.value)}
             >
               <FormControlLabel
-                value="UPI"
+                value="PayPal"
                 control={<Radio sx={{
                   "&, &.Mui-checked": {
                     color: "white", // Sets the circle color to white when unchecked and checked
