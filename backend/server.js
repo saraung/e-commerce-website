@@ -25,7 +25,7 @@ app.use(cookieParser())
 app.use(
   cors({
     credentials: true,
-    origin: 'http://localhost:5173', // Specify your front-end origin here
+    origin: ['http://localhost:5173', process.env.FRONTEND_URL],
     exposedHeaders: ['set-cookie'],
   })
 );
@@ -54,3 +54,4 @@ app.listen(port,()=>{
         console.log(error)    
   }
 })
+
