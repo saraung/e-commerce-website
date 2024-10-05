@@ -42,9 +42,6 @@ app.use("/api/upload",uploadRoutes);
 app.use("/api/orders",orderRoutes)
 
 
-const __dirname = path.resolve()
-app.use("/uploads",express.static(path.join(__dirname+'/uploads')))
-
 app.listen(port,()=>{
   try {
     console.log(`server running on  port ${port} `)
