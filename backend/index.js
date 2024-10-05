@@ -35,6 +35,11 @@ app.get("/",(req,res)=>{
     res.send("Hello Welcome to SRG Store")
 })
 
+app.get('/favicon.ico', (req, res) => {
+  res.status(204).end(); // No Content
+});
+
+
 app.use("/api/users",userRoutes);
 app.use("/api/category",categoryRoutes);
 app.use("/api/products",productRoutes);
