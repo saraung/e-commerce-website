@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { Typography, Card, CardContent, Grid, Button, Table, TableBody, TableCell, TableHead, TableRow, TableContainer, Paper, CircularProgress, Box } from "@mui/material";
-// import Message from "../../components/Message";
 import ProgressSteps from "../../components/ProgressSteps";
 import Loader from "../../components/Loader";
 import { useCreateOrderMutation } from "../../redux/api/orderApiSlice";
@@ -105,7 +104,7 @@ const PlaceOrder = () => {
               <Typography>Tax: ₹{cart.taxPrice}</Typography>
               <Typography>Total: ₹{cart.totalPrice}</Typography>
 
-              {error && <Message variant="danger">{error.data.message}</Message>}
+              {error && <h1>{error.data.message}</h1>}
 
               <div style={{ marginTop: "16px" }}>
                 <Typography variant="h6">Shipping</Typography>

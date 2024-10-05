@@ -63,13 +63,14 @@ const Order = () => {
     refetch();
   };
 
-const formattedDate = moment(order.paidAt).format("MMMM Do YYYY, h:mm A");
+  // Ensure order is defined before accessing properties
+  if (isLoading) return <Loader />;
+  if (error) return <Box variant="danger">{error.data.message}</Box>;
+  if (!order) return <Box variant="danger">Order not found</Box>;
 
-  return isLoading ? (
-    <Loader/>
-  ) : error ? (
-    <Box variant="danger">{error.data.message}</Box>
-  ) : (
+  const formattedDate = moment(order.paidAt).format("MMMM Do YYYY, h:mm A");
+
+  return (
     <Grid container spacing={2} sx={{ marginTop: "2rem", padding: "1rem" }}>
       <Grid item xs={12} md={8}>
         <Card sx={{ padding: "1.5rem", marginBottom: "1rem", backgroundColor: "#1c1c1c" }}>
@@ -77,10 +78,10 @@ const formattedDate = moment(order.paidAt).format("MMMM Do YYYY, h:mm A");
             Order Details
           </Typography>
           {order.orderItems.length === 0 ? (
-            <Box sx={{color:"red",fontSize:20,fontWeight:"bold"}}>Your order is empty</Box>
+            <Box sx={{ color: "red", fontSize: 20, fontWeight: "bold" }}>Your order is empty</Box>
           ) : (
             <TableContainer component={Paper}>
-              <Table sx={{backgroundColor:"#FFD700"}}>
+              <Table sx={{ backgroundColor: "#FFD700" }}>
                 <TableHead>
                   <TableRow>
                     <TableCell>Image</TableCell>
@@ -139,7 +140,7 @@ const formattedDate = moment(order.paidAt).format("MMMM Do YYYY, h:mm A");
           {!order.isPaid ? (
             <>
               <Divider sx={{ marginY: "1rem" }} />
-              {loadingPay && <CircularProgress/>}
+              {loadingPay && <CircularProgress />}
               {isPending ? (
                 <Loader />
               ) : (
@@ -147,10 +148,10 @@ const formattedDate = moment(order.paidAt).format("MMMM Do YYYY, h:mm A");
               )}
             </>
           ) : (
-            <Box sx={{color:"green",fontSize:20,fontWeight:"bold"}}>Paid on {formattedDate}</Box>
+            <Box sx={{ color: "green", fontSize: 20, fontWeight: "bold" }}>Paid on {formattedDate}</Box>
           )}
 
-          {loadingDeliver && <CircularProgress/>}
+          {loadingDeliver && <CircularProgress />}
           {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
             <Button
               variant="contained"
